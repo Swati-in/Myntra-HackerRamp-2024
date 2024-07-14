@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+  font: 400 1em/1.5 "Neuton";
+  background: #090d00;
+  color: rgba(255, 255, 255, .25);
+  text-align: center;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding-top: 20px;
+  background: url('/public/images/bgimage.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 10px;
+  }
+}
+
+.heading-container {
+  text-align: center;
+}
+
+.heading {
+  font: 900 4em/1 "Oswald", sans-serif;
+  letter-spacing: 3px;
+  padding: .25em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, .5);
+
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  animation: animateTitle 300s linear infinite;
+  -webkit-animation:animateTitle 300s linear infinite;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  
+  
+
+  /* Add text shadow */
+  
+}
+
+@keyframes animateTitle {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+.button-container {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    bottom: 70px;
+    gap: 10px;
+  }
+}
+
+.swipe-button {
+  background-color: #fbeee0;
+  border: 2px solid #ff8d22;
+  border-radius: 30px;
+  box-shadow: #ff8d22 4px 4px 0 0;
+  color: #814e03;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: #ffd09a;
+  }
+
+  &:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+.end-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 6px  4px 8px rgb(231, 176, 113);
+  text-align: center;
+  font-family: 'Concert One', sans-serif;
+  cursor: pointer;
+  position: relative; /* Ensure it can host absolute positioned content */
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+}
+
+.end-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0; /* Ensure the image is behind the text */
+}
+
+.end-card-text {
+  font-size: 18px;
+  padding: 20px;
+  color: white;
+  position: relative;
+  z-index: 1; /* Ensure the text is in front of the image */
+}
+
+.end-card-button {
+  width: 80%;
+  font-weight:400 4em/1;
+  max-width: 300px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #814e03;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 160px;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+
+  &:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top:120px;
+    bottom: 10px; /* Adjust this value as needed */
+    padding: 0.25em 0.75em;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+}
