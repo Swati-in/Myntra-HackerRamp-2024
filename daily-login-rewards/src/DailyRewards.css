@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@17,54.6&display=swap');
+
+
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5f7;    
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 11px ), repeating-linear-gradient( #4db4fd55, #4db4fd );
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.daily-rewards {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 17,
+    "SHLN" 54.6
+  }
+  .heading {
+    font-size: 80px; 
+    padding-left:25px;
+    ;/* Adjust this value to change the heading font size */
+  }
+  
+  .show-rewards-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right:50px;
+    margin-top:20px;
+  }
+  
+  .show-rewards-button:hover {
+    background-color: #45a049;
+  }
+  
+  .status-bar {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #000000;
+    display:block;
+    font-size: larger;
+    font-weight: bold;
+    max-width:fit-content;
+    margin: 0 auto;
+    letter-spacing: 1px;
+  }
+  
+  .rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .reward-day {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+
+  }
+  .reward-day:hover {
+    transform: scale(1.05);
+    background-color: #f0f8ff;
+  }
+  
+  .reward-day.checked-in {
+    background-color: #d3ffd3;
+    pointer-events: none;
+  }
+  .reward-day div {
+    font-size: 14px; /* Adjust this value to change the reward description font size */
+    margin-top: 5px;
+  }
+  
+  .reward-day.future-day {
+    background-color: #f9f9f9;
+    pointer-events: none;
+  }
+  
+  .reward-day img {
+    max-width: 100%; /* Ensure images don't exceed the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .reward-name {
+    margin-top: 10px;
+    font-size: 10px;
+    
+  }
+  
+  
+  .reward-day-number {
+    margin-top: 5px;
+    font-weight: bolder;
+    color: #555; /* Optional: Adjust text color */
+  }
+  .checked-in {
+    background-color: #d4edda;
+  }
+  
+  .future-day {
+    background-color: #f8d7da;
+  }
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    animation: modalFadeIn 0.5s;
+    max-width: 90%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal-content img {
+    max-width: 100%; /* Ensure images don't exceed the modal content */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Optional: Adjust spacing */
+  }
+  
+  .close {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .claimed-rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .claimed-reward {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .claimed-reward img {
+    max-width: 80px; /* Adjust image size */
+    height: auto;
+    margin-right: 10px; /* Optional: Adjust spacing */
+    transition: transform 0.3s ease; 
+  }
+  .claimed-reward-details {
+    flex: 1;
+    
+  }
+  
+  .claimed-reward-name {
+    position: relative;font-size: 10px;
+    font-weight: bold;
+  }
+  
+  .claimed-reward-day {
+    color: #555; /* Optional: Adjust text color */
+  }
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .rewards-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+  
+    .reward-day {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    .status-bar {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .rewards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+  
+    .reward-day {
+      padding: 8px;
+      font-size: 10px;
+    }
+  
+    .status-bar {
+      font-size: 12px;
+    }
+  }
+  
